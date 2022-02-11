@@ -8,7 +8,8 @@ import java.util.Scanner;
  * @author Joe Corrales
  */
 public class JoeCorralesPolimorfismo {
-    static ArrayList<Familia> familias = new ArrayList<>();
+    //Lista de familias
+    public static ArrayList<Familia> familias = new ArrayList<>();
     
     public static void main(String[] args) {
         crearFamilias();
@@ -20,6 +21,8 @@ public class JoeCorralesPolimorfismo {
                     break;
                 
                 case 2: 
+                    System.out.println("[=== Crear aldeano ===]");
+                    crearAldeano();
                     break;
                     
                 case 3:
@@ -70,8 +73,9 @@ public class JoeCorralesPolimorfismo {
         return input.next();
     }
     
+    //Funcion para crear 3 familias
     public static void crearFamilias() {
-        //Familia Montescos
+        //Familia Montesco
         Familia m = new Familia("Montesco");
         familias.add(m);
         SuperGranjero romeo = new SuperGranjero("Romeo", "Montesco", 20, 1000);
@@ -84,10 +88,12 @@ public class JoeCorralesPolimorfismo {
         //Familia Capuleto
         Familia ca = new Familia("Capuleto");
         familias.add(ca);
-        Normal julieta = new Normal();
+        Normal julieta = new Normal("Julieta", "Capuleto", 19, 200);
+        Normal padre = new Normal("Hector", "Capuleto", 45, 230);
+        Herrero tio = new Herrero("Donald", "Capuleto", 32, 450);
         ca.getAldeanos().add(julieta);
-        ca.getAldeanos().add(julieta);
-        ca.getAldeanos().add(julieta);
+        ca.getAldeanos().add(padre);
+        ca.getAldeanos().add(tio);
         
         //Familia Corrales
         Familia co = new Familia("Corrales");
@@ -98,6 +104,75 @@ public class JoeCorralesPolimorfismo {
         co.getAldeanos().add(explosivo);               
         co.getAldeanos().add(agronomo2);
         co.getAldeanos().add(herrero2);
-
+    }
+    
+    private static void crearAldeano() {
+        int opcion = myNextInt("\n[=== Tipo de Aldeano ===]"
+                + "\n1. Normal"
+                + "\n2. Pacifista"
+                + "\n3. Herrero"
+                + "\n4. Agronomo"
+                + "\n5. Explosivo"
+                + "\nOpcion: ");
+        tipo(opcion);
+    }
+    
+    private static void tipo(int opcion) {
+        System.out.println("Ingrese el apellido para verificar");
+        String apellido = myNextString("Apellido: ");
+        String nombre = null; int edad = 0; int ptsVida = 0;
+        
+        if (verificarApellido(apellido)) {
+            nombre = myNextString("Nombre: ");
+            edad = myNextInt("Edad: ");
+            ptsVida = myNextInt("Puntos de vida: ");
+        }
+        
+        switch (opcion) {
+            case 1: {
+                Normal a = new Normal(nombre, apellido, edad, ptsVida);
+                agregarAldeano(a);
+            }
+                break;
+            case 2: {
+                Pacifista al = new Pacifista(nombre, apellido, edad, ptsVida);
+                agregarAldeano(al);
+            }
+                break;
+            case 3: {
+                Herrero ald = new Herrero(nombre, apellido, edad, ptsVida);
+                agregarAldeano(ald);
+            }
+                break;                 
+            case 4: {
+                Agronomo alde = new Agronomo(nombre, apellido, edad, ptsVida);
+                agregarAldeano(alde);
+            }
+                break;
+            case 5: {
+                Explosivo aldea = new Explosivo(nombre, apellido, edad, ptsVida);
+                agregarAldeano(aldea);
+            }
+                break;
+            default:
+                System.out.println("No disponible");
+        }
+    } 
+    
+    private static boolean verificarApellido(String apellido) {
+        for(Familia familia : familias) {
+            if (familia.getApellido().equalsIgnoreCase(apellido)) 
+                return true;
+        }
+        System.out.println("No existe esa familia!");
+        return false;
+    }
+    
+    private static void agregarAldeano(Aldeano aldeano) {
+        for (Familia familia : familias) {
+            if (familia.getApellido().equalsIgnoreCase(aldeano.getApellido())) {
+                familia.getAldeanos().add(aldeano);
+            }
+        }
     }
 }
