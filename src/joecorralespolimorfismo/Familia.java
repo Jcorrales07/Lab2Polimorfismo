@@ -14,6 +14,7 @@ public class Familia {
     
     public Familia(String apellido) {
         this.apellido = apellido;
+        aldeanos = new ArrayList<>();
     } 
    
     public String getApellido() {
@@ -22,6 +23,10 @@ public class Familia {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public ArrayList<Aldeano> getAldeanos() {
+        return aldeanos;
     }
 
     @Override

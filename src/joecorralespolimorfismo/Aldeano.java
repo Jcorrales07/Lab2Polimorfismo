@@ -5,10 +5,11 @@ package joecorralespolimorfismo;
  * @author Corra
  */
 public class Aldeano {
-    private String nombre;
-    private String apellido;
-    private int edad;
-    private int ptsVida;
+    protected String nombre;
+    protected String apellido;
+    protected int edad;
+    protected int ptsVida;
+    protected int ptsAtaque;
     
     public Aldeano() {}
     
@@ -17,6 +18,7 @@ public class Aldeano {
         this.apellido = apellido;
         this.edad = edad;
         this.ptsVida = ptsVida;
+        this.ptsAtaque = 0;
     }
 
     public String getNombre() {
@@ -49,6 +51,14 @@ public class Aldeano {
 
     public void setPtsVida(int ptsVida) {
         this.ptsVida = ptsVida;
+    }
+
+    public int getPtsAtaque() {
+        return ptsAtaque;
+    }
+
+    public void setPtsAtaque(int ptsAtaque) {
+        this.ptsAtaque = ptsAtaque;
     }
 
     @Override
