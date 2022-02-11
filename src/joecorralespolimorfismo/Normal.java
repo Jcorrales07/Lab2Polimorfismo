@@ -2,7 +2,7 @@ package joecorralespolimorfismo;
 
 /**
  *
- * @author Corra
+ * @author Joe Corrales
  */
 public class Normal extends Aldeano {
     
@@ -13,5 +13,10 @@ public class Normal extends Aldeano {
         ptsAtaque = 50;
     }
 
-    //toString()
+    //toString()  
+
+    @Override
+    public void dolorGenerado() {
+
+    }
 }

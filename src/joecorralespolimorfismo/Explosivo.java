@@ -2,10 +2,10 @@ package joecorralespolimorfismo;
 
 /**
  *
- * @author Corra
+ * @author Joe Corrales
  */
 public class Explosivo extends Aldeano {
-
+    
     public Explosivo() {}
 
     public Explosivo(String nombre, String apellido, int edad, int ptsVida) {
@@ -14,4 +14,8 @@ public class Explosivo extends Aldeano {
     }
 
     //toString()
+
+    @Override
+    public void dolorGenerado() {
+    }
 }

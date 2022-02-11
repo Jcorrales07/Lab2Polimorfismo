@@ -15,29 +15,18 @@ public class JoeCorralesPolimorfismo {
         crearFamilias();
         do {
             switch(menu()) {
-                case 1: 
-                    System.out.println("[=== Crear Familia ===]");
-                    crearFamilia();
-                    break;
-                
-                case 2: 
-                    System.out.println("[=== Crear aldeano ===]");
-                    crearAldeano();
-                    break;
+                case 1:{ crearFamilia(); } break;
+                case 2:{ crearAldeano(); } break;
+                case 3:{ imprimirFamilias(); } break;
+                case 4:{ pelea(); } break;
                     
-                case 3:
-                    break;
-                    
-                case 4:
-                    break;
-                    
-                case 0:
+                case 0: {
                     System.out.println("Hasta luego!");
                     System.exit(0);
+                }
                     break;
                     
-                default:
-                        System.out.println("ESCOJA UNA OPCION CORRECTA");
+                default: System.out.println("ESCOJA UNA OPCION CORRECTA");
             }
         } while (true);
     }
@@ -55,22 +44,10 @@ public class JoeCorralesPolimorfismo {
     }
     
     private static void crearFamilia() {
+        System.out.println("\n[=== Crear Familia ===]");
         String apellido = myNextString("Apellido de la familia: ");
         familias.add(new Familia(apellido));
         System.out.println("Familia creada!\n");
-    }
-    
-    public static int myNextInt(String mensaje) {
-        Scanner input = new Scanner(System.in);
-        System.out.print(mensaje);
-        return input.nextInt();
-    }
-    
-    public static String myNextString(String mensaje) {
-        Scanner input = new Scanner(System.in);
-        input.useDelimiter("\n");
-        System.out.print(mensaje);
-        return input.next();
     }
     
     //Funcion para crear 3 familias
@@ -106,7 +83,9 @@ public class JoeCorralesPolimorfismo {
         co.getAldeanos().add(herrero2);
     }
     
+    //Funcion para crear un Aldeano
     private static void crearAldeano() {
+        System.out.println("\n[=== Crear aldeano ===]");
         int opcion = myNextInt("\n[=== Tipo de Aldeano ===]"
                 + "\n1. Normal"
                 + "\n2. Pacifista"
@@ -117,6 +96,7 @@ public class JoeCorralesPolimorfismo {
         tipo(opcion);
     }
     
+    //Funcion para saber que tipo de 
     private static void tipo(int opcion) {
         System.out.println("Ingrese el apellido para verificar");
         String apellido = myNextString("Apellido: ");
@@ -135,7 +115,8 @@ public class JoeCorralesPolimorfismo {
             }
                 break;
             case 2: {
-                Pacifista al = new Pacifista(nombre, apellido, edad, ptsVida);
+                String discurso = myNextString("Ingresa el discurso: ");
+                Pacifista al = new Pacifista(nombre, apellido, edad, ptsVida, discurso);
                 agregarAldeano(al);
             }
                 break;
@@ -174,5 +155,31 @@ public class JoeCorralesPolimorfismo {
                 familia.getAldeanos().add(aldeano);
             }
         }
+    }
+    
+    private static void imprimirFamilias() {
+        System.out.println("\n[=== Familia ===]");
+        for (int i = 0; i < familias.size(); i++) {
+            System.out.println((i+1)+ ". "+ familias.get(i).getAldeanos()+ "\n");
+        }
+    }
+    
+    private static void pelea() {
+        System.out.println("\n[=== Pelea ===]");
+        String fApellido = myNextString("Elija un familia que enfrentar: "); 
+
+    }
+    
+    public static int myNextInt(String mensaje) {
+        Scanner input = new Scanner(System.in);
+        System.out.print(mensaje);
+        return input.nextInt();
+    }
+    
+    public static String myNextString(String mensaje) {
+        Scanner input = new Scanner(System.in);
+        input.useDelimiter("\n");
+        System.out.print(mensaje);
+        return input.next();
     }
 }

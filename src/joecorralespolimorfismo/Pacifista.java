@@ -2,16 +2,16 @@ package joecorralespolimorfismo;
 
 /**
  *
- * @author Corra
+ * @author Joe Corrales
  */
 public class Pacifista extends Aldeano {
     private String discurso;
     
     public Pacifista() {}
 
-    public Pacifista(String nombre, String apellido, int edad, int ptsVida) {
+    public Pacifista(String nombre, String apellido, int edad, int ptsVida, String discurso) {
         super(nombre, apellido, edad, ptsVida);
-        this.discurso = "Calmaos porfavor";
+        this.discurso = discurso;
     }
 
     public String getDiscurso() {
@@ -23,4 +23,9 @@ public class Pacifista extends Aldeano {
     }
     
     //toString()
+
+    @Override
+    public void dolorGenerado() {
+    
+    }
 }

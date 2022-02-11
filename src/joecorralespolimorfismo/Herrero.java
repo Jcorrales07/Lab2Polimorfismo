@@ -4,7 +4,7 @@ import java.util.Random;
 
 /**
  *
- * @author Corra
+ * @author Joe Corrales
  */
 public class Herrero extends Aldeano {
     Random random = new Random();
@@ -19,4 +19,8 @@ public class Herrero extends Aldeano {
     }
     
     //toString()
+
+    @Override
+    public void dolorGenerado() {
+    }
 }

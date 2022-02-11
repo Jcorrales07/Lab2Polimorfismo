@@ -2,7 +2,7 @@ package joecorralespolimorfismo;
 
 /**
  *
- * @author Corra
+ * @author Joe Corrales
  */
 public class SuperGranjero extends Aldeano {
 
@@ -13,5 +13,7 @@ public class SuperGranjero extends Aldeano {
         ptsAtaque = 1000;
     }
     
-    //toString()
+    @Override
+    public void dolorGenerado() {
+    }
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Corra
+ * @author Joe Corrales
  */
 public class Familia {
     private String apellido;
@@ -31,7 +31,10 @@ public class Familia {
 
     @Override
     public String toString() {
-        return "Familia { " + "\napellido=" + apellido + 
-                ", \naldeanos=" + aldeanos.size() + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Familia { \nApellido = ").append(apellido);
+        sb.append(", \nAldeanos = ").append(aldeanos);
+        sb.append("\n}");
+        return sb.toString();
     }
 }

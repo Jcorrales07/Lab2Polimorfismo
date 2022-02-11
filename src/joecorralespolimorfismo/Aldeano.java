@@ -2,9 +2,9 @@ package joecorralespolimorfismo;
 
 /**
  *
- * @author Corra
+ * @author Joe Corrales
  */
-public class Aldeano {
+public abstract class Aldeano {
     protected String nombre;
     protected String apellido;
     protected int edad;
@@ -61,6 +61,8 @@ public class Aldeano {
         this.ptsAtaque = ptsAtaque;
     }
 
+    public abstract void dolorGenerado();
+    
     @Override
     public String toString() {
         return "Aldeano {" + "\nnombre=" + nombre + ", \napellido=" + apellido + 
