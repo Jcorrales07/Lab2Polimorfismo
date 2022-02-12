@@ -18,6 +18,7 @@ public class Agronomo extends Aldeano {
         if(!prob(5)) {
             if(adnAtacado instanceof Pacifista) return ptsAtaque * 1.05;
             else if (adnAtacado instanceof Normal) return ptsAtaque * 1.10;
+            return ptsAtaque;
         }
         System.out.println("Fallo");
         return 0;

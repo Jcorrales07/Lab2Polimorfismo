@@ -24,7 +24,8 @@ public class Herrero extends Aldeano {
     public double dolorGenerado(Aldeano adnAtacado) {
         if (!prob(10)) {
             if(adnAtacado instanceof Agronomo) return ptsAtaque * 1.10;
-            if(adnAtacado instanceof Pacifista) return ptsAtaque * 1.05;
+            else if(adnAtacado instanceof Pacifista) return ptsAtaque * 1.05;
+            return ptsAtaque;
         }
         System.out.println("Falloo");
         return 0;

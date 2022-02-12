@@ -8,7 +8,7 @@ import java.util.Scanner;
  *
  * @author Joe Corrales
  */
-public class JoeCorralesPolimorfismo {
+public class Lab4P2_JoeCorrales_22141156 {
     //Lista de familias
     public static ArrayList<Familia> familias = new ArrayList<>();
     
@@ -57,8 +57,8 @@ public class JoeCorralesPolimorfismo {
         Familia m = new Familia("Montesco");
         familias.add(m);
         SuperGranjero romeo = new SuperGranjero("Romeo", "Montesco", 20, 1000);
-        Herrero herrero = new Herrero("Pedro", "Montesco", 24, 250);
-        Agronomo agronomo = new Agronomo("James", "Montesco", 19, 200);
+        Herrero herrero = new Herrero("Pedro", "Montesco", 24, 560);
+        Agronomo agronomo = new Agronomo("James", "Montesco", 19, 600);
         m.getAldeanos().add(romeo);
         m.getAldeanos().add(herrero);
         m.getAldeanos().add(agronomo);
@@ -66,9 +66,9 @@ public class JoeCorralesPolimorfismo {
         //Familia Capuleto
         Familia ca = new Familia("Capuleto");
         familias.add(ca);
-        Normal julieta = new Normal("Julieta", "Capuleto", 19, 200);
-        Normal padre = new Normal("Hector", "Capuleto", 45, 230);
-        Herrero tio = new Herrero("Donald", "Capuleto", 32, 450);
+        Normal julieta = new Normal("Julieta", "Capuleto", 19, 505);
+        Normal padre = new Normal("Hector", "Capuleto", 45, 780);
+        Herrero tio = new Herrero("Donald", "Capuleto", 32, 890);
         ca.getAldeanos().add(julieta);
         ca.getAldeanos().add(padre);
         ca.getAldeanos().add(tio);
@@ -76,9 +76,9 @@ public class JoeCorralesPolimorfismo {
         //Familia Corrales
         Familia co = new Familia("Corrales");
         familias.add(co);
-        Explosivo explosivo = new Explosivo("Joe", "Corrales", 18, 450);
-        Agronomo agronomo2 = new Agronomo("Ian", "Corrales", 25, 200);
-        Herrero herrero2 = new Herrero("Oseas", "Corrales", 50, 250);
+        Explosivo explosivo = new Explosivo("Joe", "Corrales", 18, 999);
+        Agronomo agronomo2 = new Agronomo("Ian", "Corrales", 25, 755);
+        Herrero herrero2 = new Herrero("Oseas", "Corrales", 50, 765);
         co.getAldeanos().add(explosivo);               
         co.getAldeanos().add(agronomo2);
         co.getAldeanos().add(herrero2);
@@ -174,11 +174,18 @@ public class JoeCorralesPolimorfismo {
     private static void pelea() {
         System.out.println("\n[=== Pelea ===]");
         String apellido = myNextString("Elija un familia que enfrentar: ");
-        Familia familiaPelear = buscar(apellido);
+        Familia familiaVs = buscar(apellido);
         Familia montesco = buscar("Montesco");
-        if(familiaPelear != null && familiaPelear.aldeanos.size() >= 1) {
-            Collections.shuffle(familiaPelear.aldeanos);
+        if(familiaVs != null && familiaVs.aldeanos.size() >= 1) {
+            System.out.println("\t\tMontesco VS "+ familiaVs.getApellido()+"\nSTARTTT!!!");
+            Collections.shuffle(familiaVs.aldeanos);
             Collections.shuffle(montesco.aldeanos);
+            int i = 0;
+            do {
+                
+            } while(!montesco.aldeanos.isEmpty() && !familiaVs.aldeanos.isEmpty());
+                
+            
         }
         
     }
