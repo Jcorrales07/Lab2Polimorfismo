@@ -183,9 +183,13 @@ public class Lab4P2_JoeCorrales_22141156 {
             int i = 0;
             do {
                 Aldeano pMontesco = montesco.aldeanos.get(i);
+                if(familiaVs.aldeanos.isEmpty()) {
+                    familias.remove(familiaVs);
+                }
                 Aldeano pVS = familiaVs.aldeanos.get(i); 
 
                 while(pMontesco.getPtsVida() != 0 && pVS.getPtsVida() != 0) {
+                    
                     double dolor = pMontesco.dolorGenerado(pVS);
                     if (dolor != 0) {
                         pVS.setPtsVida((int) (pVS.getPtsVida() - dolor));
@@ -193,6 +197,7 @@ public class Lab4P2_JoeCorrales_22141156 {
                                 + dolor + " de daño! ");
                         System.out.println("La vida de " + pVS.getNombre() + " es: " + pVS.getPtsVida() );
                     }
+                    
                     double dolorVS = pVS.dolorGenerado(pMontesco);
                     if (dolorVS != 0) {
                         pMontesco.setPtsVida((int) (pMontesco.getPtsVida() - dolorVS));
@@ -200,6 +205,7 @@ public class Lab4P2_JoeCorrales_22141156 {
                                 + dolorVS + " de daño! ");
                         System.out.println("La vida de " + pMontesco.getNombre() + " es: " + pVS.getPtsVida() );
                     }
+                    
                     if (pMontesco.getPtsVida() != 0 && pVS.getPtsVida() < 0) {
                         System.out.println(pMontesco.getNombre() + " ha ganado!");
                         break;
