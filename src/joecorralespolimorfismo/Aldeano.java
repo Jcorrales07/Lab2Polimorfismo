@@ -9,7 +9,7 @@ public abstract class Aldeano {
     protected String apellido;
     protected int edad;
     protected int ptsVida;
-    protected int ptsAtaque;
+    protected double ptsAtaque;
     
     public Aldeano() {}
     
@@ -53,15 +53,21 @@ public abstract class Aldeano {
         this.ptsVida = ptsVida;
     }
 
-    public int getPtsAtaque() {
+    public double getPtsAtaque() {
         return ptsAtaque;
     }
 
-    public void setPtsAtaque(int ptsAtaque) {
+    public void setPtsAtaque(double ptsAtaque) {
         this.ptsAtaque = ptsAtaque;
     }
 
-    public abstract void dolorGenerado();
+    public abstract double dolorGenerado(Aldeano adnAtacado);
+    
+    public boolean prob(int porcentaje) {
+        double prob = porcentaje;
+        double res = Math.random() * porcentaje + 1;
+        return prob == res;
+    }
     
     @Override
     public String toString() {

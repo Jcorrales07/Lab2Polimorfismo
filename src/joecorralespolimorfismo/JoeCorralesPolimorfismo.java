@@ -1,6 +1,7 @@
 package joecorralespolimorfismo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -151,31 +152,46 @@ public class JoeCorralesPolimorfismo {
     
     private static void agregarAldeano(Aldeano aldeano) {
         for (Familia familia : familias) {
-            if (familia.getApellido().equalsIgnoreCase(aldeano.getApellido())) {
+            if (familia.getApellido().equalsIgnoreCase(aldeano.getApellido())) 
                 familia.getAldeanos().add(aldeano);
-            }
         }
     }
     
     private static void imprimirFamilias() {
-        System.out.println("\n[=== Familia ===]");
-        for (int i = 0; i < familias.size(); i++) {
-            System.out.println((i+1)+ ". "+ familias.get(i).getAldeanos()+ "\n");
+        System.out.println("\n[=== Familias ===]\n");
+        for (int i = 0; i < familias.size(); i++) 
+            System.out.println((i+1)+ ".- "+ familias.get(i).getAldeanos()+ "\n");
+    }
+    
+    private static Familia buscar(String apellido) {
+        for (Familia familia: familias) {
+             if (familia.getApellido().equals(apellido)) 
+                return familia;
         }
+        return null;
     }
     
     private static void pelea() {
         System.out.println("\n[=== Pelea ===]");
-        String fApellido = myNextString("Elija un familia que enfrentar: "); 
-
+        String apellido = myNextString("Elija un familia que enfrentar: ");
+        Familia familiaPelear = buscar(apellido);
+        Familia montesco = buscar("Montesco");
+        if(familiaPelear != null && familiaPelear.aldeanos.size() >= 1) {
+            Collections.shuffle(familiaPelear.aldeanos);
+            Collections.shuffle(montesco.aldeanos);
+        }
+        
     }
     
+    
+    //Funcion para pedir un entero
     public static int myNextInt(String mensaje) {
         Scanner input = new Scanner(System.in);
         System.out.print(mensaje);
         return input.nextInt();
     }
     
+    //Funcion para pedir una cadena
     public static String myNextString(String mensaje) {
         Scanner input = new Scanner(System.in);
         input.useDelimiter("\n");

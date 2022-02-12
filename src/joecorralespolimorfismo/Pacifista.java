@@ -12,6 +12,7 @@ public class Pacifista extends Aldeano {
     public Pacifista(String nombre, String apellido, int edad, int ptsVida, String discurso) {
         super(nombre, apellido, edad, ptsVida);
         this.discurso = discurso;
+        ptsAtaque = 0;
     }
 
     public String getDiscurso() {
@@ -25,7 +26,8 @@ public class Pacifista extends Aldeano {
     //toString()
 
     @Override
-    public void dolorGenerado() {
-    
+    public double dolorGenerado(Aldeano adnAtacado) {
+        System.out.println(discurso);
+        return 0;
     }
 }

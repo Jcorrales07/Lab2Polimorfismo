@@ -14,6 +14,12 @@ public class Agronomo extends Aldeano {
     }
 
     @Override
-    public void dolorGenerado() {
+    public double dolorGenerado(Aldeano adnAtacado) {
+        if(!prob(5)) {
+            if(adnAtacado instanceof Pacifista) return ptsAtaque * 1.05;
+            else if (adnAtacado instanceof Normal) return ptsAtaque * 1.10;
+        }
+        System.out.println("Fallo");
+        return 0;
     }
 }

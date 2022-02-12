@@ -16,7 +16,8 @@ public class Normal extends Aldeano {
     //toString()  
 
     @Override
-    public void dolorGenerado() {
-
+    public double dolorGenerado(Aldeano adnAtacado) {
+        if(adnAtacado instanceof Pacifista) return ptsAtaque * 1.05;
+        return ptsAtaque;
     }
 }

@@ -16,6 +16,12 @@ public class Explosivo extends Aldeano {
     //toString()
 
     @Override
-    public void dolorGenerado() {
+    public double dolorGenerado(Aldeano adnAtacado) {
+        if(!prob(15)) {
+            if(adnAtacado instanceof Herrero) return ptsAtaque * 1.05;
+            else if (adnAtacado instanceof Agronomo) return ptsAtaque * 1.10;
+        }
+        System.out.println("Fallo");
+        return 0;
     }
 }

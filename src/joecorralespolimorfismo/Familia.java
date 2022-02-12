@@ -7,8 +7,8 @@ import java.util.ArrayList;
  * @author Joe Corrales
  */
 public class Familia {
-    private String apellido;
-    private ArrayList<Aldeano> aldeanos;
+    protected String apellido;
+    protected ArrayList<Aldeano> aldeanos;
 
     public Familia() {}
     

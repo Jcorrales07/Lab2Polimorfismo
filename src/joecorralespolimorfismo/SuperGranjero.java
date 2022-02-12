@@ -14,6 +14,9 @@ public class SuperGranjero extends Aldeano {
     }
     
     @Override
-    public void dolorGenerado() {
+    public double dolorGenerado(Aldeano adnAtacado) {
+        if(adnAtacado instanceof Herrero) return ptsAtaque * 1.10;
+        if (adnAtacado instanceof Explosivo) return ptsAtaque * 1.15;
+        return ptsAtaque;
     }
 }
