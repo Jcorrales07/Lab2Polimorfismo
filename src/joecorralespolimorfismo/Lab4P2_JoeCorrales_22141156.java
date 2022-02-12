@@ -202,6 +202,10 @@ public class Lab4P2_JoeCorrales_22141156 {
                     }
                     if (pMontesco.getPtsVida() != 0 && pVS.getPtsVida() < 0) {
                         System.out.println(pMontesco.getNombre() + " ha ganado!");
+                        break;
+                    } else if (pVS.getPtsVida() != 0 && pMontesco.getPtsVida() < 0) {
+                        System.out.println(pVS.getNombre() + " ha ganado!");
+                        break;
                     }
                 }
                 i++;
